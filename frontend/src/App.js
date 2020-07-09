@@ -1,5 +1,5 @@
 import CardsList from './components/cards-list/cards-list.component'
-import CardsCreateUpdate from './components/card-create-update/card-create-update.component'
+// import CardsCreateUpdate from './components/card-create-update/card-create-update.component'
 import './App.css';
 
 import {Route, Switch} from 'react-router-dom';
@@ -22,8 +22,8 @@ class App extends React.Component {
                     {/*<Route exact path='/' component={Homepage}/>*/}
                     <div className="content">
                         <Route path="/" exact component={CardsList}/>
-                        <Route path="/card/:pk" component={CardsCreateUpdate}/>
-                        <Route path="/card/" exact component={CardsCreateUpdate}/>
+                        {/*<Route path="/card/:pk" component={CardsCreateUpdate}/>*/}
+                        {/*<Route path="/card/" exact component={CardsCreateUpdate}/>*/}
                     </div>
                 </Switch>
             </div>
