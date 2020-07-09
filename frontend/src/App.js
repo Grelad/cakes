@@ -1,46 +1,35 @@
-import React, {Component} from 'react';
-import {BrowserRouter} from 'react-router-dom'
-import {Route, Link} from 'react-router-dom'
-
 import CardsList from './components/cards-list/cards-list.component'
 import CardsCreateUpdate from './components/card-create-update/card-create-update.component'
 import './App.css';
 
-const BaseLayout = () => (
-    <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">Django React Demo</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    <a className="nav-item nav-link" href="/">CUSTOMERS</a>
-                    <a className="nav-item nav-link" href="/card">CREATE CUSTOMER</a>
+import {Route, Switch} from 'react-router-dom';
+import Header from './components/header/header.component';
+import Homepage from './pages/homepage/homepage.component';
+import React from 'react';
 
-                </div>
-            </div>
-        </nav>
 
-        <div className="content">
-            <Route path="/" exact component={CardsList}/>
-            <Route path="/card/:pk" component={CardsCreateUpdate}/>
-            <Route path="/card/" exact component={CardsCreateUpdate}/>
+class App extends React.Component {
+    constructor() {
+        super();
 
-        </div>
+    }
 
-    </div>
-)
-
-class App extends Component {
     render() {
         return (
-            <BrowserRouter>
-                <BaseLayout/>
-            </BrowserRouter>
+            <div>
+                <Header/>
+                <Switch>
+                    {/*<Route exact path='/' component={Homepage}/>*/}
+                    <div className="content">
+                        <Route path="/" exact component={CardsList}/>
+                        <Route path="/card/:pk" component={CardsCreateUpdate}/>
+                        <Route path="/card/" exact component={CardsCreateUpdate}/>
+                    </div>
+                </Switch>
+            </div>
         );
     }
 }
+
 
 export default App;
